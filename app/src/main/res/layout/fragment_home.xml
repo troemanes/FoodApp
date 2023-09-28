@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,13 +9,15 @@
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true">
-
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        tools:ignore="MissingConstraints">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/material_emphasis_high_type">
+            android:layout_height="wrap_content">
+
+
 
 
     <LinearLayout
@@ -32,11 +35,11 @@
 
         <TextView
             android:id="@+id/tv_home"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
             android:fontFamily="@font/myfont"
             android:text="Home"
-             android:layout_weight="1"
             android:textColor="@color/accent"
             android:textSize="@dimen/_25ssp"
             android:textStyle="bold" />
@@ -45,8 +48,8 @@
             android:id="@+id/image_search"
             android:layout_width="@dimen/_40sdp"
             android:layout_height="match_parent"
-            android:src="@drawable/baseline_search"
-            android:scaleType="centerCrop">
+            android:scaleType="centerCrop"
+            android:src="@drawable/baseline_search">
 
         </ImageView>
 
@@ -69,7 +72,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/random_cardview"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_200sdp"
+        android:layout_height="@dimen/_160sdp"
         android:layout_marginStart="@dimen/_25sdp"
         android:layout_marginEnd="@dimen/_25sdp"
         android:layout_marginTop="@dimen/_10sdp"
@@ -83,8 +86,7 @@
             android:id="@+id/image_random_meal"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/accent"/>
-
+            android:background="@color/accent" />
 
     </androidx.cardview.widget.CardView>
 
@@ -105,7 +107,7 @@
         android:id="@+id/rc_view_popular"
         android:layout_marginStart="@dimen/_25sdp"
         android:layout_width="wrap_content"
-        android:layout_height="@dimen/_120sdp"
+        android:layout_height="@dimen/_90sdp"
         android:layout_marginEnd="@dimen/_10sdp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/overpopular"/>
@@ -114,7 +116,7 @@
         android:id="@+id/tv_categories"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="categories"
+        android:text="Categories"
         android:textStyle="bold"
         android:fontFamily="@font/myfont"
         android:textSize="@dimen/_17sdp"
@@ -140,6 +142,6 @@
     </androidx.cardview.widget.CardView>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-     </androidx.core.widget.NestedScrollView>
-
+    </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
+
