@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.foodapp.R
+import com.example.foodapp.pojo.Meal
 import com.example.foodapp.pojo.MealList
 import com.example.foodapp.retrofit.RetrofitInstance
 import retrofit2.Call
@@ -35,7 +36,11 @@ class HomeFragment : Fragment() {
 
           RetrofitInstance.api.getRandomMeal().enqueue(object:Callback<MealList>{
               override fun onResponse(call: Call<MealList>, response: Response<MealList>) {
-                  if
+                  if(response.body() != null) {
+                      val randomMeal:Meal =  response.body()!!.meals[0]
+                  }else  {
+                      return
+                  }
               }
 
               override fun onFailure(call: Call<MealList>, t: Throwable) {
