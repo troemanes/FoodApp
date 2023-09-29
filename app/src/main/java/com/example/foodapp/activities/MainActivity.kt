@@ -1,9 +1,10 @@
-package com.example.foodapp
+package com.example.foodapp.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
+import com.example.foodapp.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -13,7 +14,7 @@ class MainActivity : AppCompatActivity() {
 
         //bottomnav and controller
         val bottomNav =  findViewById<BottomNavigationView>(R.id.bottom_nav)
-        val navController = Navigation.findNavController(this,R.id.hostfragment)
+        val navController = Navigation.findNavController(this, R.id.hostfragment)
         NavigationUI.setupWithNavController(bottomNav,navController)
     }
 }
