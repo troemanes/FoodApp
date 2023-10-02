@@ -5,4 +5,6 @@
     <color name="primary">#FB2B2B</color>
     <color name="accent">#D61565</color>
      <color name="g_black">#403F3F</color>
+    <color name="darkblue">#0C646C</color>
+
 </resources>
