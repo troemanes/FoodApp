@@ -8,7 +8,7 @@
         android:id="@+id/image_category"
         android:layout_width="@dimen/_70ssp"
         android:layout_height="@dimen/_70ssp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="5dp"
         android:scaleType="fitCenter"
         android:src="@color/accent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,10 +23,10 @@
         app:layout_constraintTop_toBottomOf="@id/image_category"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:textSize="@dimen/_15sdp"
+        android:textSize="@dimen/_10sdp"
         android:text="Category Name"
         android:textColor="@color/black"
         android:fontFamily="@font/myfont"
-        android:layout_marginTop="@dimen/_3sdp"/>
+        android:layout_marginTop="@dimen/_2sdp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,7 +12,7 @@ import com.example.foodapp.retrofit.RetrofitInstance
 import retrofit2.Callback
 import retrofit2.Response
 
-class MealVM():ViewModel() {
+class MealVM:ViewModel() {
 
     private var mealDetailsLiveData = MutableLiveData<Meal>()
 

@@ -106,31 +106,32 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rc_view_popular"
-        android:layout_marginStart="@dimen/_25sdp"
+        android:layout_marginStart="@dimen/_35sdp"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/_90sdp"
-        android:layout_marginEnd="@dimen/_30sdp"
+        android:layout_marginEnd="@dimen/_35sdp"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/overpopular"/>
 
-    <TextView
-        android:id="@+id/tv_categories"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Categories"
-        android:textStyle="bold"
-        android:fontFamily="@font/myfont"
-        android:textSize="@dimen/_17sdp"
-        android:textColor="@color/black"
-        app:layout_constraintTop_toBottomOf="@id/rc_view_popular"
-        app:layout_constraintStart_toStartOf="@id/rc_view_popular"/>
+            <TextView
+                android:id="@+id/tv_categories"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/myfont"
+                android:text="Categories"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_17sdp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/overpopular"
+                app:layout_constraintTop_toBottomOf="@id/rc_view_popular" />
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_25sdp"
-        android:layout_marginEnd="@dimen/_25sdp"
-        app:cardCornerRadius="@dimen/_10sdp"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:layout_marginEnd="@dimen/_5sdp"
+        app:cardCornerRadius="@dimen/_8sdp"
         app:cardUseCompatPadding="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_categories">
