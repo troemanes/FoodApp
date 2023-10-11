@@ -4,8 +4,6 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("com.google.devtools.ksp")
-
-
 }
 
 android {
@@ -54,14 +52,13 @@ android {
         }
     }
 }
-
 dependencies {
     //room
     val room_version = "2.5.2"
     implementation("androidx.room:room-runtime:$room_version")
     annotationProcessor("androidx.room:room-compiler:$room_version")
     implementation("androidx.room:room-ktx:$room_version")
-  //  ksp("androidx.room:room-compiler:2.5.2")
+    ksp("androidx.room:room-compiler:$room_version")
 
 
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
@@ -75,9 +72,12 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+
     val nav_version = "2.7.3"
     implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
     implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
+
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0-alpha02")
 
     //intuit
     implementation ("com.intuit.sdp:sdp-android:1.1.0")

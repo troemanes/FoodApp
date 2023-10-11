@@ -22,11 +22,6 @@
             android:name=".activity.MealAktivity"
             android:exported="false" />
         <activity
-            android:name=".activities.MealActivity"
-            android:exported="false"
-            android:label="@string/title_activity_meal"
-            android:theme="@style/Theme.FoodApp" />
-        <activity
             android:name=".activity.MainActivity"
             android:exported="true">
             <intent-filter>

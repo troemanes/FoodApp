@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="@dimen/_150sdp"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="@dimen/_10sdp"
+    app:cardCornerRadius="@dimen/_8sdp"
     app:cardUseCompatPadding="true"
     android:elevation="@dimen/_2sdp">
 
@@ -14,7 +14,7 @@
         <ImageView
             android:id="@+id/img_meal"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_170sdp"
+            android:layout_height="@dimen/_130sdp"
             android:scaleType="centerCrop"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -29,7 +29,7 @@
             app:layout_constraintStart_toStartOf="@id/img_meal"
             app:layout_constraintEnd_toEndOf="@id/img_meal"
             app:layout_constraintTop_toBottomOf="@id/img_meal"
-            android:layout_margin="@dimen/_5sdp"
+            android:layout_margin="@dimen/_3sdp"
             android:text="TEST"/>
 
 
