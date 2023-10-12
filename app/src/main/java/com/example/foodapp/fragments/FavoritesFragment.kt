@@ -14,6 +14,7 @@ import com.example.foodapp.R
 import com.example.foodapp.activity.MainActivity
 import com.example.foodapp.adapters.FavoritesMealsAdapter
 import com.example.foodapp.databinding.FragmentFavoritesBinding
+import com.example.foodapp.pojo.Meal
 import com.example.foodapp.viewModel.HomeVM
 import com.example.foodapp.viewModel.HomeViewModelFactory
 import com.google.android.material.snackbar.Snackbar
@@ -58,16 +59,18 @@ private lateinit var favoritesAdapter : FavoritesMealsAdapter
                 viewHolder: RecyclerView.ViewHolder,
                 target: RecyclerView.ViewHolder
             ) = true
-
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
             val position  = viewHolder.adapterPosition
-             viewModel.deleteMeal(favoritesAdapter.differ.currentList[position])
+                val deletedMeal = favoritesAdapter.differ.currentList[position]
+                viewModel.deleteMeal(deletedMeal)
+
                 Snackbar.make(requireView(), "Meal Deleted", Snackbar.LENGTH_LONG).setAction(
                     "Undo",
-                    View.OnClickListener{
-                        viewModel.insertMeal(favoritesAdapter.differ.currentList[position])
+                    View.OnClickListener {println("Geri alındı")
+                        viewModel.insertMeal(deletedMeal)
                     }
                 ).show()
+
             }
 
         }

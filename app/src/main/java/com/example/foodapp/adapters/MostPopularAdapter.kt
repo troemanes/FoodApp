@@ -7,9 +7,10 @@ import com.bumptech.glide.Glide
 import com.example.foodapp.databinding.PopularItemsBinding
 import com.example.foodapp.pojo.MealsByCategory
 
-class MostPopularAdapter():RecyclerView.Adapter<MostPopularAdapter.PopularMealViewHolder>() {
-lateinit var onItemClick:((MealsByCategory) -> Unit)
+class MostPopularAdapter() :RecyclerView.Adapter<MostPopularAdapter.PopularMealViewHolder>() {
+    lateinit var onItemClick:((MealsByCategory) -> Unit)
     private var  mealsList = ArrayList<MealsByCategory>()
+    var onLongItemClick:((MealsByCategory)->Unit)?=null
 
     fun setMeals(mealsList:ArrayList<MealsByCategory>){
         this.mealsList = mealsList
@@ -22,9 +23,7 @@ lateinit var onItemClick:((MealsByCategory) -> Unit)
 
     }
 
-    override fun getItemCount(): Int {
- return mealsList.size
-    }
+
 
     override fun onBindViewHolder(holder: PopularMealViewHolder, position: Int) {
               Glide.with(holder.itemView)
@@ -34,7 +33,13 @@ lateinit var onItemClick:((MealsByCategory) -> Unit)
 
 onItemClick.invoke(mealsList[position])
      }
-
+       holder.itemView.setOnLongClickListener {
+           onLongItemClick?.invoke(mealsList[position])
+           true
+       }
+    }
+    override fun getItemCount(): Int {
+        return mealsList.size
     }
 
 }
