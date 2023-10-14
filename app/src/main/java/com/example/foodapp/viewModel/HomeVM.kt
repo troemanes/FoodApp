@@ -17,6 +17,7 @@ import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import retrofit2.http.Query
 
 class HomeVM(
     private val mealDatabase: MealDatabase
@@ -27,6 +28,7 @@ class HomeVM(
     private var categoriesLiveData = MutableLiveData<List<Category>>()
     private var favoriteMealsLiveData = mealDatabase.mealDao().getAllMeals()
     private var bs_liveData = MutableLiveData<Meal>()
+    private var searchMealsLiveData = MutableLiveData<List<Meal>>()
     fun getRandomMeal() {
         RetrofitInstance.api.getRandomMeal().enqueue(object: Callback<MealList> {
             override fun onResponse(call: Call<MealList>, response: Response<MealList>) {
@@ -92,13 +94,30 @@ val meal = response.body()?.meals?.first()
 
             override fun onFailure(call: Call<MealList>, t: Throwable) {
 
-                 println("Homevm sıçtık")
+                 println("Homevm sıçtık1")
             }
 
         })
     }
 
+fun searchMeals(searchQuery:String) = RetrofitInstance.api.searchMeals(searchQuery).enqueue(
+    object : Callback<MealList>{
+        override fun onResponse(call: Call<MealList>, response: Response<MealList>) {
+            val mealsList = response.body()?.meals
+            mealsList?.let{
+                searchMealsLiveData.postValue(it)
+            }
+        }
 
+        override fun onFailure(call: Call<MealList>, t: Throwable) {
+            println("Homevm sıçtık2")
+        }
+
+
+    }
+)
+
+    fun observeSearchedMealsLiveData() : LiveData<List<Meal>>  = searchMealsLiveData
     fun deleteMeal(meal: Meal){
         viewModelScope.launch {
             mealDatabase.mealDao().delete(meal)

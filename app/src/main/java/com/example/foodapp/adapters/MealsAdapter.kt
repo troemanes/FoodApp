@@ -2,22 +2,16 @@ package com.example.foodapp.adapters
 
 import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.compose.ui.state.ToggleableState
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.Recycler
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.bumptech.glide.Glide
-import com.example.foodapp.databinding.FragmentFavoritesBinding
 import com.example.foodapp.databinding.MealsItemBinding
 import com.example.foodapp.pojo.Meal
-import org.jetbrains.annotations.Async
 
-class FavoritesMealsAdapter: RecyclerView.Adapter<FavoritesMealsAdapter.FavoritesMealsAdapterViewHolder>() {
+class MealsAdapter: RecyclerView.Adapter<MealsAdapter.FavoritesMealsAdapterViewHolder>() {
 
     inner class FavoritesMealsAdapterViewHolder(val binding:MealsItemBinding): ViewHolder(binding.root)
        // RecyclerView.ViewHolder(binding.root)
