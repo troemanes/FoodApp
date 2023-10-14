@@ -49,10 +49,9 @@ super.onViewCreated(view, savedInstanceState)
 
     private fun prepareRCV() {
         categoriesAdapter = CategoriesAdapter()
-binding.rvCategories.apply {
+    binding.rvCategories.apply {
     layoutManager = GridLayoutManager(context,3,GridLayoutManager.VERTICAL,false)
-
-adapter = categoriesAdapter
+    adapter = categoriesAdapter
 }
     }
 }

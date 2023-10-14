@@ -19,18 +19,17 @@
      android:layout_margin="5dp">
 
 
-
      <EditText
+         android:id="@+id/searchbox"
          android:layout_width="0dp"
          android:layout_height="@dimen/_45sdp"
-         android:id="@+id/searchbox"
          android:layout_weight="1"
-         android:padding="15dp"
-         android:paddingEnd="15dp"
          android:background="@drawable/searchbox_background"
          android:hint="Search Meals"
-         android:textColorHint="@color/white"
-         />
+         android:padding="15dp"
+         android:paddingEnd="15dp"
+         android:textColor="#FDFDFD"
+         android:textColorHint="@color/white" />
      
      <ImageView
          android:id="@+id/img_search"
