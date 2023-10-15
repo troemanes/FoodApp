@@ -52,7 +52,7 @@ class MealAktivity : AppCompatActivity() {
                 Toast.makeText(this, "Meal Saved", Toast.LENGTH_SHORT).show()
                 println("MealSaved , Saved Meal: ${it.strMeal}")
             } ?: run {
-                println("Yemek Yok")
+                println("No Food")
             }
         }
     }
