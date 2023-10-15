@@ -1,1 +1,1 @@
-# FoodApp
+# MyFoodie
