@@ -6,13 +6,14 @@ import androidx.compose.material3.rememberDateRangePickerState
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.foodapp.databinding.MealsItemBinding
+import com.example.foodapp.pojo.Category
 import com.example.foodapp.pojo.MealsByCategory
 import com.example.foodapp.viewModel.CategoryMealsVM
 
 class CategoryMealsAdapter: RecyclerView.Adapter<CategoryMealsAdapter.CategoryMealsViewModel>() {
 
     private var mealsList =  ArrayList<MealsByCategory>()
-
+    var onItemClick: ((MealsByCategory) -> Unit)? = null
      fun setMealsList(mealsList:List<MealsByCategory>){
          this.mealsList = mealsList as ArrayList<MealsByCategory>
          notifyDataSetChanged()
@@ -26,15 +27,17 @@ class CategoryMealsAdapter: RecyclerView.Adapter<CategoryMealsAdapter.CategoryMe
         LayoutInflater.from(parent.context)
     ))
     }
-    override fun onBindViewHolder(holder: CategoryMealsAdapter.CategoryMealsViewModel, position: Int) {
-       Glide.with(holder.itemView).load(mealsList[position].strMealThumb).into(holder.binding.imgMeal)
-        holder.binding.tvMealName.text =  mealsList[position].strMeal
-    }
 
     override fun getItemCount(): Int {
 
-    return mealsList.size
+        return mealsList.size
     }
-
-
+    override fun onBindViewHolder(holder: CategoryMealsAdapter.CategoryMealsViewModel, position: Int) {
+       Glide.with(holder.itemView).load(mealsList[position].strMealThumb).into(holder.binding.imgMeal)
+        holder.binding.tvMealName.text =  mealsList[position].strMeal
+//Sonradan
+        holder.itemView.setOnClickListener {
+            onItemClick!!.invoke(mealsList[position])
+        }
+    }
 }
