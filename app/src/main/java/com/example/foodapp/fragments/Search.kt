@@ -1,5 +1,6 @@
 package com.example.foodapp.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -12,6 +13,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.foodapp.R
 import com.example.foodapp.activity.MainActivity
+import com.example.foodapp.activity.MealAktivity
 import com.example.foodapp.adapters.MealsAdapter
 import com.example.foodapp.databinding.FragmentSearchBinding
 import com.example.foodapp.viewModel.HomeVM
@@ -24,6 +26,13 @@ class Search : Fragment() {
       private lateinit var binding: FragmentSearchBinding
 private lateinit var viewModel :HomeVM
 private lateinit var searchRva: MealsAdapter
+
+    companion object {
+
+        const val MEAL_ID = "com.example.foodapp.fragments.idMeal"
+        const val MEAL_NAME = "com.example.foodapp.fragments.nameMeal"
+        const val MEAL_THUMB = "com.example.foodapp.fragments.thumbMeal"
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -81,6 +90,14 @@ searchRva = MealsAdapter()
         binding.rvSearchMeals.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = searchRva
+
+            searchRva.onItemClick = { meal ->
+                // Sonradan
+                val intent = Intent(requireActivity(), MealAktivity::class.java)
+                intent.putExtra(MEAL_ID,meal.idMeal)
+                intent.putExtra(MEAL_NAME,meal.strMeal)
+                intent.putExtra(MEAL_THUMB,meal.strMealThumb)
+                startActivity(intent)}
         }
     }
 }
