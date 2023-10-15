@@ -12,6 +12,7 @@ import com.example.foodapp.viewModel.CategoryMealsVM
 
 class CategoryMealsAdapter: RecyclerView.Adapter<CategoryMealsAdapter.CategoryMealsViewModel>() {
 
+
     private var mealsList =  ArrayList<MealsByCategory>()
     var onItemClick: ((MealsByCategory) -> Unit)? = null
      fun setMealsList(mealsList:List<MealsByCategory>){

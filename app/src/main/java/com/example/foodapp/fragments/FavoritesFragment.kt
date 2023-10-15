@@ -8,14 +8,24 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
+import com.example.foodapp.activity.CategoryMealsActivity
 import com.example.foodapp.activity.MainActivity
+import com.example.foodapp.activity.MealAktivity
 import com.example.foodapp.adapters.MealsAdapter
 import com.example.foodapp.databinding.FragmentFavoritesBinding
 import com.example.foodapp.viewModel.HomeVM
 import com.google.android.material.snackbar.Snackbar
+import android.content.Intent
 
 
 class FavoritesFragment : Fragment() {
+//Sonradan
+    companion object {
+
+        const val MEAL_ID = "com.example.foodapp.fragments.idMeal"
+        const val MEAL_NAME = "com.example.foodapp.fragments.nameMeal"
+        const val MEAL_THUMB = "com.example.foodapp.fragments.thumbMeal"
+    }
 
 private lateinit var binding: FragmentFavoritesBinding
 private lateinit var viewModel: HomeVM
@@ -34,7 +44,6 @@ private lateinit var favoritesAdapter : MealsAdapter
     ): View {
         binding = FragmentFavoritesBinding.inflate(inflater)
         return binding.root
-       // return inflater.inflate(R.layout.fragment_favorites, container, false)
 
 
     }
@@ -78,7 +87,16 @@ private lateinit var favoritesAdapter : MealsAdapter
 
         layoutManager = GridLayoutManager(context,2,GridLayoutManager.VERTICAL,false)
         adapter = favoritesAdapter
+
+             favoritesAdapter.onItemClick = { meal ->
+                 // Sonradan
+                 val intent = Intent(requireActivity(), MealAktivity::class.java)
+                 intent.putExtra(MEAL_ID,meal.idMeal)
+                 intent.putExtra(MEAL_NAME,meal.strMeal)
+                 intent.putExtra(MEAL_THUMB,meal.strMealThumb)
+                 startActivity(intent)}
     }}
+
 
     private fun observeFavorites() {
         viewModel.observeFavoritesMealsLiveData().observe(requireActivity()) { meals ->

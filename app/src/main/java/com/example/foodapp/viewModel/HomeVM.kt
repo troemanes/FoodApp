@@ -94,7 +94,7 @@ val meal = response.body()?.meals?.first()
 
             override fun onFailure(call: Call<MealList>, t: Throwable) {
 
-                 println("Homevm sıçtık1")
+                 println("Homevm Failed 1")
             }
 
         })
@@ -110,7 +110,7 @@ fun searchMeals(searchQuery:String) = RetrofitInstance.api.searchMeals(searchQue
         }
 
         override fun onFailure(call: Call<MealList>, t: Throwable) {
-            println("Homevm sıçtık2")
+            println("Homevm  Failed 2")
         }
 
 
